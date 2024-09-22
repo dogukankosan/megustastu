@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        #image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        #playMusicModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #playMusicModalContent {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <audio id="backgroundMusic" loop>
+        <source src="megusta.mp3" type="audio/mp3">
+        Tarayıcınız ses etiketini desteklemiyor.
+    </audio>
+    <div id="playMusicModal">
+        <div id="playMusicModalContent">
+            <h3>Müziği başlatmak ister misiniz? (Sesi Açın Lütfen 😊)</h3>
+            <button id="startMusicButton">Müziği Başlat</button>
+        </div>
+    </div>
+    <div id="image-container">
+        <select id="resolutionSelect" style="width: 150px;">
+            <option value="144p">144p</option>
+            <option value="240p">240p</option>
+            <option value="360p">360p</option>
+            <option value="480p">480p</option>
+            <option value="720p">720p</option>
+            <option value="1080p">1080p</option>
+        </select>
+        <br/><br/><br/><br/>
+        <img id="resolutionImage" src="pngler/144.jpeg" alt="Çözünürlük Resmi">
+    </div>
+    <script>
+        document.getElementById('startMusicButton').addEventListener('click', function() {
+            document.getElementById('backgroundMusic').play();
+            document.getElementById('playMusicModal').style.display = 'none';
+        });
+        document.getElementById('resolutionSelect').addEventListener('change', function() {
+            var selectedResolution = this.value;
+            var imgElement = document.getElementById('resolutionImage');
+            switch (selectedResolution) {
+                case '144p':
+                    imgElement.src = "pngler/144.jpeg";
+                    break;
+                case '240p':
+                    imgElement.src = "pngler/240.jpeg";
+                    break;
+                case '360p':
+                    imgElement.src = "pngler/360.jpeg";
+                    break;
+                case '480p':
+                    imgElement.src = "pngler/480.jpeg";
+                    break;
+                case '720p':
+                    imgElement.src = "pngler/720.jpeg";
+                    break;
+                case '1080p':
+                    imgElement.src = "pngler/berra.PNG";
+                    break;
+            }
+        });
+        window.onload = function() {
+            document.getElementById('playMusicModal').style.display = 'flex';
+        };
+    </script>
+</body>
+</html>

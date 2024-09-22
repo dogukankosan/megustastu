@@ -47,7 +47,7 @@
 </head>
 <body>
     <audio id="backgroundMusic" loop>
-        <source src="megusta.mp3" type="audio/mp3"> <!-- Doğru yolu kullanın -->
+        <source src="megusta.mp3" type="audio/mp3"> <!-- Ses dosyasının yolu -->
         Tarayıcınız ses etiketini desteklemiyor.
     </audio>
     <div id="playMusicModal">
@@ -76,6 +76,8 @@
             });
             document.getElementById('playMusicModal').style.display = 'none';
         });
+
+        // Çözünürlük değiştiğinde resmi güncelle
         document.getElementById('resolutionSelect').addEventListener('change', function() {
             var selectedResolution = this.value;
             var imgElement = document.getElementById('resolutionImage');

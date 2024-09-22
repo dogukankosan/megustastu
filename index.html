@@ -65,12 +65,14 @@
             <option value="1080p">1080p</option>
         </select>
         <br/><br/><br/><br/>
-        <img id="resolutionImage" src="pngler/144.jpeg" alt="Çözünürlük Resmi">
+        <img id="resolutionImage" src="pngler/144.jpeg" alt="Çözünürlük Resmi" loading="lazy">
     </div>
     <script>
         // Müziği başlatma butonu için olay dinleyicisi
         document.getElementById('startMusicButton').addEventListener('touchstart', function() {
-            document.getElementById('backgroundMusic').play();
+            document.getElementById('backgroundMusic').play().catch(function(error) {
+                console.log('Müzik başlatılamadı:', error);
+            });
             document.getElementById('playMusicModal').style.display = 'none';
         });
 

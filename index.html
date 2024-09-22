@@ -46,7 +46,7 @@
 </head>
 <body>
     <audio id="backgroundMusic" loop>
-        <source src="megusta.mp3" type="audio/mp3">
+        <source src="audio/megusta.mp3" type="audio/mp3"> <!-- Doğru yolu kullanın -->
         Tarayıcınız ses etiketini desteklemiyor.
     </audio>
     <div id="playMusicModal">
@@ -70,15 +70,10 @@
     <script>
         // Müziği başlatma butonu için olay dinleyicisi
         document.getElementById('startMusicButton').addEventListener('click', function() {
-            var audio = document.getElementById('backgroundMusic');
-            audio.play().then(function() {
-                // Başarılı bir şekilde çaldı
-                document.getElementById('playMusicModal').style.display = 'none';
-            }).catch(function(error) {
+            document.getElementById('backgroundMusic').play().catch(function(error) {
                 console.log('Müzik başlatılamadı:', error);
-                // Kullanıcıdan etkileşim isteği
-                alert("Lütfen müziği başlatmak için butona tekrar basın.");
             });
+            document.getElementById('playMusicModal').style.display = 'none';
         });
 
         // Çözünürlük değiştiğinde resmi güncelle

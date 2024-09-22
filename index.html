@@ -68,10 +68,18 @@
         <img id="resolutionImage" src="pngler/144.jpeg" alt="Çözünürlük Resmi">
     </div>
     <script>
+        // Müziği başlatma butonu için olay dinleyicisi
         document.getElementById('startMusicButton').addEventListener('click', function() {
             document.getElementById('backgroundMusic').play();
             document.getElementById('playMusicModal').style.display = 'none';
         });
+
+        document.getElementById('startMusicButton').addEventListener('touchstart', function() {
+            document.getElementById('backgroundMusic').play();
+            document.getElementById('playMusicModal').style.display = 'none';
+        });
+
+        // Çözünürlük değiştiğinde resmi güncelle
         document.getElementById('resolutionSelect').addEventListener('change', function() {
             var selectedResolution = this.value;
             var imgElement = document.getElementById('resolutionImage');
@@ -96,6 +104,8 @@
                     break;
             }
         });
+
+        // Sayfa yüklendiğinde müzik başlatma modalını göster
         window.onload = function() {
             document.getElementById('playMusicModal').style.display = 'flex';
         };
